@@ -47,6 +47,8 @@
 
 		},
 		onComplete: function(e) {
+			var loading = document.getElementById('loading')
+			loading.remove()
 			this.person = this.queue.get('p').content;
 			this.startImg = this.queue.get('k').content;
 			this.bird1 = this.queue.get('f1').content;

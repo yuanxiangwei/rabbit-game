@@ -3,7 +3,7 @@
 		Extends: Hilo.Container,
 		radish: [],
 		data: [],
-		show: false,
+		show: false,                    //兔子是否在场景
 		visible: false,
 		score: 0,
 		constructor: function(properties) {
@@ -80,7 +80,7 @@
 			ra.on(Hilo.event.POINTER_START, function(e) { //点击兔子事件
 				if(readying) {
 					clearTimeout(timer)
-					this.rabbitCallback(r, ra)
+					this.rabbitCallback(r, ra,true)
 				}
 				readying = false
 				console.log('选中了兔子')
@@ -89,12 +89,12 @@
 				this.rabbitCallback(r, ra)
 			}, 3000)
 		},
-		rabbitCallback: function(r, ra) {
-			this.setScore()
-			this.show = false
-			this.radish[r].visible = true
-			this.addTu(r, true)
-			ra.off()
+		rabbitCallback: function(r, ra,c) {
+			if(c) this.setScore()                     //加分
+			this.show = false							//兔子不在场景
+			this.radish[r].visible = true             //萝卜重新出现
+			this.addTu(r, true)                        //土动效
+			ra.off()                                      //移除事件
 			this.removeChild(ra)
 		},
 		radishMove: function() { //让萝卜动起来

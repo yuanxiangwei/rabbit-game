@@ -1,24 +1,102 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
-		 <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<style type="text/css">
 			* {
-				padding:0,;
+				padding: 0, ;
 				margin: 0;
 			}
-			body {
+			
+			html,
+			body,
+			#loading {
 				cursor: pointer;
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.loading {
+				width: 80px;
+				height: 40px;
+				margin: 0 auto;
+				margin-top: 50% !important;
+			}
+			
+			.loading span {
+				display: inline-block;
+				width: 8px;
+				height: 100%;
+				border-radius: 4px;
+				background: lightgreen;
+				-webkit-animation: load 1s ease infinite;
+			}
+			
+			@-webkit-keyframes load {
+				0%,
+				100% {
+					height: 40px;
+					background: lightgreen;
+				}
+				50% {
+					height: 70px;
+					margin: -15px 0;
+					background: lightblue;
+				}
+			}
+			
+			.loading span:nth-child(2) {
+				-webkit-animation-delay: 0.2s;
+			}
+			
+			.loading span:nth-child(3) {
+				-webkit-animation-delay: 0.4s;
+			}
+			
+			.loading span:nth-child(4) {
+				-webkit-animation-delay: 0.6s;
+			}
+			
+			.loading span:nth-child(5) {
+				-webkit-animation-delay: 0.8s;
+			}
+			
+			p {
+				text-align: center;
+			}
+			
+			#loading-p {
+				margin-top: 10%;
 			}
 		</style>
 	</head>
+
 	<body>
-		<p id="loading">加载中...</p>
+		<!--<audio src="img/m5.ogg" autoplay loop>
+您的浏览器不支持 audio 标签。
+</audio>-->
+		<div id="loading">
+			<div class="loading">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<p id='loading-p'>正在加载中 80%</p>
+			<p id="loading-o"></p>
+		</div>
+
 		<script src="js/hilo/hilo-standalone.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/hilo/hilo-flash.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/hilo/WebAudio.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/hilo/WebSound.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/game.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/asset.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/start.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bird.js" type="text/javascript" charset="utf-8"></script>
@@ -27,4 +105,5 @@
 		<script src="js/rabbit.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/tu.js" type="text/javascript" charset="utf-8"></script>
 	</body>
+
 </html>
